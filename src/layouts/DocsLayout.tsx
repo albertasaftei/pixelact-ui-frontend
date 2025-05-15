@@ -14,9 +14,9 @@ export function DocsLayout() {
   const isMobile = useIsMobile();
 
   return (
-    <div className="flex h-full w-full">
+    <div className="flex h-full w-full bg-background">
       {!isMobile && (
-        <aside className="w-64 border-r-4 border-dashed p-4">
+        <aside className="min-w-72 border-r-4 border-dashed p-4">
           <nav className="flex flex-col gap-2">
             {navItems.map((item) => (
               <NavLink
@@ -25,8 +25,8 @@ export function DocsLayout() {
                 onClick={() => setCurrentLink(item.path)}
                 className={
                   currentLink === item.path
-                    ? "font-bold text-green-600"
-                    : "text-gray-700"
+                    ? "w-fit text-foreground border-b-4 border-dashed"
+                    : "w-fit text-foreground"
                 }
               >
                 {item.name}

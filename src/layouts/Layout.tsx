@@ -3,11 +3,14 @@ import { Outlet } from "react-router-dom";
 
 const Layout = () => {
   return (
-    <div className="flex w-screen flex-col ">
+    <div className="flex w-screen flex-col">
       <Header />
-      <main className="flex justify-center items-center h-[calc(100vh-64px)]">
+      <main>
         <Outlet />
       </main>
+      <footer className="py-4 px-12 bg-foreground text-background text-xs">
+        <p>© 2025 Pixelact UI</p>
+      </footer>
     </div>
   );
 };
