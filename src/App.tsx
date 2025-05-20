@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-import Introduction from "./content/introduction.mdx";
 import Installation from "./content/installation.mdx";
+import Usage from "./content/usage.mdx";
 import Homepage from "./pages/Homepage";
 import { routes } from "@/utils";
 import { DocsLayout } from "./layouts/DocsLayout";
@@ -33,8 +33,8 @@ function App() {
         <Route path={routes.root} element={<Layout />}>
           <Route path={routes.root} element={<Homepage />} />
           <Route element={<DocsLayout />}>
-            <Route path={routes.docs.introduction} element={<Introduction />} />
             <Route path={routes.docs.installation} element={<Installation />} />
+            <Route path={routes.docs.usage} element={<Usage />} />
           </Route>
         </Route>
       </Routes>

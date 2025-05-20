@@ -4,7 +4,6 @@ import { useState } from "react";
 import { NavLink, Outlet } from "react-router-dom";
 
 const navItems = [
-  { name: "Introduction", path: "/docs/introduction" },
   { name: "Installation", path: "/docs/installation" },
   { name: "Usage", path: "/docs/usage" },
 ];
@@ -14,9 +13,9 @@ export function DocsLayout() {
   const isMobile = useIsMobile();
 
   return (
-    <div className="flex h-full w-full bg-background">
+    <div className="flex w-full bg-background">
       {!isMobile && (
-        <aside className="min-w-72 border-r-4 border-dashed p-4">
+        <aside className="min-w-72 border-r-4 border-dashed p-12">
           <nav className="flex flex-col gap-2">
             {navItems.map((item) => (
               <NavLink
@@ -25,7 +24,7 @@ export function DocsLayout() {
                 onClick={() => setCurrentLink(item.path)}
                 className={
                   currentLink === item.path
-                    ? "w-fit text-foreground border-b-4 border-dashed"
+                    ? "w-fit text-foreground border-b-2"
                     : "w-fit text-foreground"
                 }
               >
@@ -36,7 +35,7 @@ export function DocsLayout() {
         </aside>
       )}
 
-      <div className="flex-1 px-12 md:px-32 xl:px-52 2xl:px-80 py-12 sm:py-12 w-full">
+      <div className="flex-1 px-12 md:px-32 xl:px-52 2xl:px-80 py-12 sm:py-12 w-full ">
         <Outlet />
       </div>
     </div>

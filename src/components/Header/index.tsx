@@ -1,19 +1,18 @@
 import { useIsMobile } from "@/hooks/use-mobile";
 import { routes } from "@/utils";
-import { Menu } from "lucide-react";
 import { NavLink } from "react-router-dom";
 import { Drawer, DrawerContent, DrawerTrigger } from "../ui/drawer";
 import { useState } from "react";
-import { DarkMode, Github, LightMode } from "@/assets/icons";
+import { DarkMode, Github, LightMode, Menu } from "@/assets/icons";
 import { cn } from "@/lib/utils";
 
-const navigationItems = [{ name: "Docs", path: routes.docs.introduction }];
+const navigationItems = [{ name: "Docs", path: routes.docs.installation }];
 const mobileNavigationItems = [
   {
     name: "Documentation",
     items: [
-      { name: "Introduction", path: routes.docs.introduction },
       { name: "Installation", path: routes.docs.installation },
+      { name: "Usage", path: routes.docs.usage },
     ],
   },
   {
@@ -39,16 +38,22 @@ const Header = () => {
 
   return (
     <header>
-      <nav className="flex gap-12 justify-between items-center h-16 bg-foreground px-12 md:px-20">
+      <nav className="flex gap-12 justify-between items-center h-16 bg-foreground px-12 ">
         <div className="flex items-center justify-between md:justify-normal w-full gap-12">
-          <a href={routes.root} className="font-bold text-xs text-background">
+          <NavLink
+            to={routes.root}
+            className="font-bold text-xs text-background"
+          >
             PixelactUI
-          </a>
+          </NavLink>
 
           {isMobile ? (
             <Drawer open={isOpen} onOpenChange={setIsOpen}>
               <DrawerTrigger>
-                <Menu className="cursor-pointer" />
+                <Menu
+                  className={cn(iconsClassName)}
+                  style={{ color: "var(--background)" }}
+                />
               </DrawerTrigger>
               <DrawerContent className="p-4 gap-6 overflow-auto">
                 {mobileNavigationItems.map((section) => (
@@ -74,10 +79,7 @@ const Header = () => {
               <div className="flex items-center gap-4 text-xs">
                 {navigationItems.map((item) => (
                   <li key={item.path} className="relative">
-                    <NavLink
-                      to={item.path}
-                      className="text-background hover:after:content-[''] hover:after:block hover:after:w-full hover:after:border-2 hover:after:border-dashed hover:after:absolute"
-                    >
+                    <NavLink to={item.path} className="text-background">
                       {item.name}
                     </NavLink>
                   </li>
