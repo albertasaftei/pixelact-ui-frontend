@@ -4,4 +4,9 @@ export interface IconProps {
     onClick?: () => void;
     className?: string;
     style?: React.CSSProperties;
+    width?: string | number;
+    height?: string | number;
+    fill?: string;
+    stroke?: string;
+    strokeWidth?: string | number;
 }

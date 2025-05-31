@@ -5,18 +5,20 @@ import { NavLink, Outlet } from "react-router-dom";
 
 const navItems = [
   { name: "Installation", path: "/docs/installation" },
-  { name: "Usage", path: "/docs/usage" },
+  { name: "Fonts", path: "/docs/fonts" },
 ];
 
 export function DocsLayout() {
-  const [currentLink, setCurrentLink] = useState(navItems[0].path);
+  const [currentLink, setCurrentLink] = useState(window.location.pathname);
   const isMobile = useIsMobile();
 
+  console.log(currentLink);
+
   return (
-    <div className="flex w-full bg-background">
+    <div className="flex flex-1 max-w-full bg-background">
       {!isMobile && (
-        <aside className="min-w-72 border-r-4 border-dashed p-12">
-          <nav className="flex flex-col gap-2">
+        <aside className="min-w-72 border-r-4 border-dashed mx-12 py-12 xl:mx-24">
+          <nav className="flex flex-col gap-2 pixel-font">
             {navItems.map((item) => (
               <NavLink
                 key={item.path}
@@ -35,7 +37,7 @@ export function DocsLayout() {
         </aside>
       )}
 
-      <div className="flex-1 px-12 md:px-32 xl:px-52 2xl:px-80 py-12 sm:py-12 w-full ">
+      <div className="px-12 py-12 w-full xl:pr-100">
         <Outlet />
       </div>
     </div>

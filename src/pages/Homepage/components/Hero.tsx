@@ -21,10 +21,10 @@ const Hero = () => {
           "md:[mask-image:radial-gradient(800px_circle_at_center,white,transparent)]"
         )}
       />
-      <span className="text-foreground text-3xl lg:text-5xl border-dashed border-b-4">
+      <span className="text-foreground text-3xl lg:text-5xl border-dashed border-b-4 pixel-font">
         Pixelact UI
       </span>
-      <p className="mt-4 max-w-2xl text-foreground/50 ">
+      <p className="mt-4 max-w-2xl text-foreground/50 pixel-font ">
         A pixel-flavored React component library built on top of
         <span className="border-b-4 border-dashed ml-4">shadcn/ui</span>.
         <br />
@@ -39,7 +39,7 @@ const Hero = () => {
         </PixelButton>
         <PixelButton
           className="min-w-full md:min-w-fit"
-          onClick={() => navigate(routes.docs.introduction)}
+          onClick={() => navigate(routes.docs.installation)}
         >
           Documentation
         </PixelButton>

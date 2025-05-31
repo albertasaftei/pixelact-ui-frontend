@@ -2,7 +2,7 @@ import { PixelButton, PixelInput, PixelLabel } from "pixelact-ui";
 
 const ComponentsShowcase = () => {
   return (
-    <section className="p-16 border-t-4 border-dashed text-foreground">
+    <section className="p-16 border-t-4 border-dashed text-foreground pixel-font">
       <div className="text-4xl mb-8">Components showcase</div>
       <div className="flex flex-wrap gap-4">
         <div className="w-full md:w-fit flex-1 p-4  border-4 border-dashed flex flex-col gap-4">

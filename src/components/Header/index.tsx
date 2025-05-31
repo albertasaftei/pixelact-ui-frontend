@@ -3,7 +3,7 @@ import { routes } from "@/utils";
 import { NavLink } from "react-router-dom";
 import { Drawer, DrawerContent, DrawerTrigger } from "../ui/drawer";
 import { useState } from "react";
-import { DarkMode, Github, LightMode, Menu } from "@/assets/icons";
+import { DarkMode, Github, LightMode, Logo, Menu } from "@/assets/icons";
 import { cn } from "@/lib/utils";
 
 const navigationItems = [{ name: "Docs", path: routes.docs.installation }];
@@ -12,7 +12,7 @@ const mobileNavigationItems = [
     name: "Documentation",
     items: [
       { name: "Installation", path: routes.docs.installation },
-      { name: "Usage", path: routes.docs.usage },
+      { name: "Fonts", path: routes.docs.fonts },
     ],
   },
   {
@@ -27,6 +27,8 @@ const mobileNavigationItems = [
   },
 ];
 
+const iconsClassName = "hover:opacity-80 active:scale-90";
+
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const isMobile = useIsMobile();
@@ -34,17 +36,12 @@ const Header = () => {
     localStorage.getItem("theme") === "dark"
   );
 
-  const iconsClassName = "hover:opacity-80 active:scale-90";
-
   return (
     <header>
-      <nav className="flex gap-12 justify-between items-center h-16 bg-foreground px-12 ">
+      <nav className="flex gap-12 justify-between items-center h-16 bg-foreground px-12 pixel-font xl:px-24">
         <div className="flex items-center justify-between md:justify-normal w-full gap-12">
-          <NavLink
-            to={routes.root}
-            className="font-bold text-xs text-background"
-          >
-            PixelactUI
+          <NavLink to={routes.root} className=" text-xs text-background">
+            <Logo width={30} />
           </NavLink>
 
           {isMobile ? (
