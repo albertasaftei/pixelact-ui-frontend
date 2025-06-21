@@ -2,9 +2,9 @@ import { PixelButton, PixelInput, PixelLabel } from "pixelact-ui";
 
 const ComponentsShowcase = () => {
   return (
-    <section className="p-16 border-t-4 border-dashed text-foreground pixel-font">
-      <div className="text-4xl mb-8">Components showcase</div>
-      <div className="flex flex-wrap gap-4">
+    <section className=" border-t-4 border-dashed text-foreground pixel-font p-8 md:p-12 xl:p-24">
+      <div className="text-2xl mb-8">Components showcase</div>
+      <div className="flex flex-wrap gap-12 md:gap-4">
         <div className="w-full md:w-fit flex-1 p-4  border-4 border-dashed flex flex-col gap-4">
           <h4 className="text-xl mb-4 text-center">Login</h4>
           <div>
@@ -104,14 +104,12 @@ const ComponentsShowcase = () => {
           </div>
           <PixelButton>Register</PixelButton>
         </div>
-        <div className="flex-1 p-4 w-fit  border-4 border-dashed flex flex-col gap-4">
+        <div className="flex-1 p-4 w-fit border-4 border-dashed flex flex-col gap-4">
           <h4 className="text-xl mb-4 text-center">Button</h4>
           <PixelButton>Default</PixelButton>
           <PixelButton variant="destructive">Destructive</PixelButton>
           <PixelButton variant="warning">Warning</PixelButton>
           <PixelButton variant="success">Success</PixelButton>
-          <PixelButton variant="outline">Outline</PixelButton>
-          <PixelButton variant="ghost">Ghost</PixelButton>
           <PixelButton variant="link">Link</PixelButton>
         </div>
       </div>

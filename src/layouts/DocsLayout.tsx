@@ -1,4 +1,3 @@
-// src/components/Layout.tsx
 import { useIsMobile } from "@/hooks/use-mobile";
 import { useState } from "react";
 import { NavLink, Outlet } from "react-router-dom";
@@ -37,7 +36,7 @@ export function DocsLayout() {
         </aside>
       )}
 
-      <div className="px-12 py-12 w-full xl:pr-100">
+      <div className="flex flex-1 px-12 py-12 w-full xl:pr-100">
         <Outlet />
       </div>
     </div>

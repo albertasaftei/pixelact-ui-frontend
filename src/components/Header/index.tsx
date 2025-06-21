@@ -2,7 +2,7 @@ import { useIsMobile } from "@/hooks/use-mobile";
 import { routes } from "@/utils";
 import { NavLink } from "react-router-dom";
 import { Drawer, DrawerContent, DrawerTrigger } from "../ui/drawer";
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { DarkMode, Github, LightMode, Logo, Menu } from "@/assets/icons";
 import { cn } from "@/lib/utils";
 
@@ -35,13 +35,47 @@ const Header = () => {
   const [isDarkMode, setIsDarkMode] = useState(
     localStorage.getItem("theme") === "dark"
   );
+  const theme = localStorage.getItem("theme");
+
+  useEffect(() => {
+    if (theme === "dark") {
+      setIsDarkMode(true);
+    } else {
+      setIsDarkMode(false);
+    }
+  }, [theme]);
+
+  const LightDarkModeIcon = useCallback(() => {
+    return isDarkMode ? (
+      <DarkMode
+        className={cn(iconsClassName, "fill-background")}
+        onClick={() => {
+          setIsDarkMode(false);
+          document.body.classList.remove("dark");
+          document.body.classList.add("light");
+          localStorage.setItem("theme", "light");
+        }}
+      />
+    ) : (
+      <LightMode
+        className={cn(iconsClassName)}
+        color="background"
+        onClick={() => {
+          setIsDarkMode(true);
+          document.body.classList.remove("light");
+          document.body.classList.add("dark");
+          localStorage.setItem("theme", "dark");
+        }}
+      />
+    );
+  }, [isDarkMode]);
 
   return (
     <header>
-      <nav className="flex gap-12 justify-between items-center h-16 bg-foreground px-12 pixel-font xl:px-24">
+      <nav className="flex gap-12 justify-between items-center h-16 bg-foreground px-8 md:px-12 pixel-font xl:px-24">
         <div className="flex items-center justify-between md:justify-normal w-full gap-12">
           <NavLink to={routes.root} className=" text-xs text-background">
-            <Logo width={30} />
+            <Logo width={30} height={30} />
           </NavLink>
 
           {isMobile ? (
@@ -96,28 +130,7 @@ const Header = () => {
                 )
               }
             />
-            {isDarkMode ? (
-              <DarkMode
-                className={cn(iconsClassName, "fill-background")}
-                onClick={() => {
-                  setIsDarkMode(false);
-                  document.body.classList.remove("dark");
-                  document.body.classList.add("light");
-                  localStorage.setItem("theme", "light");
-                }}
-              />
-            ) : (
-              <LightMode
-                className={cn(iconsClassName)}
-                color="background"
-                onClick={() => {
-                  setIsDarkMode(true);
-                  document.body.classList.remove("light");
-                  document.body.classList.add("dark");
-                  localStorage.setItem("theme", "dark");
-                }}
-              />
-            )}
+            <LightDarkModeIcon />
           </div>
         )}
       </nav>

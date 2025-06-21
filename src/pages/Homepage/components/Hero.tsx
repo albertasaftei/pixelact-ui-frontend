@@ -8,7 +8,7 @@ const Hero = () => {
   const navigate = useNavigate();
 
   return (
-    <section className={`relative p-16 md:py-24 overflow-hidden`}>
+    <section className={`relative p-8 md:p-12 xl:p-24`}>
       <AnimatedGridPattern
         numSquares={30}
         maxOpacity={0.15}
@@ -21,10 +21,10 @@ const Hero = () => {
           "md:[mask-image:radial-gradient(800px_circle_at_center,white,transparent)]"
         )}
       />
-      <span className="text-foreground text-3xl lg:text-5xl border-dashed border-b-4 pixel-font">
+      <span className="text-foreground text-3xl xl:text-5xl border-dashed border-b-4 pixel-font">
         Pixelact UI
       </span>
-      <p className="mt-4 max-w-2xl text-foreground/50 pixel-font ">
+      <p className="mt-4 max-w-2xl text-foreground/50 pixel-font">
         A pixel-flavored React component library built on top of
         <span className="border-b-4 border-dashed ml-4">shadcn/ui</span>.
         <br />
@@ -32,13 +32,7 @@ const Hero = () => {
       </p>
       <div className="mt-6 flex max-sm:flex-col gap-6">
         <PixelButton
-          className="min-w-full md:min-w-fit"
-          onClick={() => navigate(routes.docs.installation)}
-        >
-          Get Started
-        </PixelButton>
-        <PixelButton
-          className="min-w-full md:min-w-fit"
+          className="md:min-w-fit"
           onClick={() => navigate(routes.docs.installation)}
         >
           Documentation

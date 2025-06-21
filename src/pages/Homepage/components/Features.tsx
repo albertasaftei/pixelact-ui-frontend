@@ -1,6 +1,6 @@
 const Features = () => {
   return (
-    <section className="p-16 bg-background border-t-4 border-dashed text-foreground pixel-font grid grid-cols-1 md:grid-cols-3 gap-8">
+    <section className="p-8 md:p-12 xl:p-24 bg-background border-t-4 border-dashed text-foreground pixel-font grid grid-cols-1 md:grid-cols-3 gap-8">
       <div className="relative md:after:content-[''] md:after:absolute md:after:h-full md:after:top-0 md:after:right-0 md:after:border-r-4 md:after:border-dashed">
         <span className="text-2xl">Built on shadcn/ui</span>
         <p className="mt-2  text-foreground/50">
