@@ -51,8 +51,8 @@ const Header = () => {
         className={cn(iconsClassName, "fill-background")}
         onClick={() => {
           setIsDarkMode(false);
-          document.body.classList.remove("dark");
-          document.body.classList.add("light");
+          document.documentElement.classList.remove("dark");
+          document.documentElement.classList.add("light");
           localStorage.setItem("theme", "light");
         }}
       />
@@ -62,8 +62,8 @@ const Header = () => {
         color="background"
         onClick={() => {
           setIsDarkMode(true);
-          document.body.classList.remove("light");
-          document.body.classList.add("dark");
+          document.documentElement.classList.remove("light");
+          document.documentElement.classList.add("dark");
           localStorage.setItem("theme", "dark");
         }}
       />

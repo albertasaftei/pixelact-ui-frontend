@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect } from "react";
+import React, { Suspense } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { routes } from "@/utils";
 import { DocsLayout } from "./layouts/DocsLayout";
@@ -34,19 +34,6 @@ const SuspenseLoader = () => (
 );
 
 function App() {
-  useEffect(() => {
-    const selectedTheme = localStorage.getItem("theme");
-    if (selectedTheme) {
-      document.body.classList.add(selectedTheme);
-    } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      document.body.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-    } else {
-      document.body.classList.add("light");
-      localStorage.setItem("theme", "light");
-    }
-  }, []);
-
   return (
     <BrowserRouter>
       <Routes>

@@ -9,6 +9,25 @@
       rel="stylesheet"
     />
     <title>Pixelact UI</title>
+    <script>
+      (function () {
+        try {
+          const selectedTheme = localStorage.getItem("theme");
+          console.log({ selectedTheme });
+          if (selectedTheme) {
+            document.documentElement.classList.add(selectedTheme);
+          } else if (
+            window.matchMedia("(prefers-color-scheme: dark)").matches
+          ) {
+            document.documentElement.classList.add("dark");
+            localStorage.setItem("theme", "dark");
+          } else {
+            document.documentElement.classList.add("light");
+            localStorage.setItem("theme", "light");
+          }
+        } catch (e) {}
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>
