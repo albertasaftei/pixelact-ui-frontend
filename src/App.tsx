@@ -8,11 +8,27 @@ import "highlight.js/styles/github-dark.css";
 import Spinner from "./components/Spinner";
 
 const LazyHomepage = React.lazy(() => import("./pages/Homepage"));
-const LazyInstallation = React.lazy(() => import("./content/installation.mdx"));
-const LazyFonts = React.lazy(() => import("./content/fonts.mdx"));
+const LazyNotFound = React.lazy(() => import("./pages/NotFound"));
+
+const contentModules = import.meta.glob("./content/*.mdx");
+
+const contentRoutes = Object.entries(contentModules).map(([path, loader]) => {
+  const name = path.match(/\.\/content\/(.*)\.mdx$/)?.[1];
+  const Component = React.lazy(
+    loader as () => Promise<{ default: React.ComponentType }>
+  );
+  return {
+    path: `/docs/${name}`,
+    element: (
+      <Suspense fallback={<Spinner />}>
+        <Component />
+      </Suspense>
+    ),
+  };
+});
 
 const SuspenseLoader = () => (
-  <div className="flex items-center justify-center h-full">
+  <div className="absolute top-0 bg-background flex items-center justify-center h-full w-full">
     <Spinner />
   </div>
 );
@@ -51,24 +67,23 @@ function App() {
             }
           />
           <Route element={<DocsLayout />}>
-            <Route
-              path={routes.docs.installation}
-              element={
-                <Suspense fallback={<SuspenseLoader />}>
-                  <LazyInstallation />
-                </Suspense>
-              }
-            />
-            <Route
-              path={routes.docs.fonts}
-              element={
-                <Suspense fallback={<SuspenseLoader />}>
-                  <LazyFonts />
-                </Suspense>
-              }
-            />
+            {contentRoutes.map((route) => (
+              <Route
+                key={route.path}
+                path={route.path}
+                element={route.element}
+              />
+            ))}
           </Route>
         </Route>
+        <Route
+          path={routes.notFound}
+          element={
+            <Suspense fallback={<SuspenseLoader />}>
+              <LazyNotFound />
+            </Suspense>
+          }
+        />
       </Routes>
     </BrowserRouter>
   );
