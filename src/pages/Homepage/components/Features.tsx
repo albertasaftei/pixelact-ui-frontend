@@ -4,22 +4,22 @@ const Features = () => {
       <div className="relative md:after:content-[''] md:after:absolute md:after:h-full md:after:top-0 md:after:right-0 md:after:border-r-4 md:after:border-dashed">
         <span className="text-2xl">Built on shadcn/ui</span>
         <p className="mt-2  text-foreground/50">
-          All the power of shadcn's elegant and flexible architecture. Enjoy
-          Tailwind-first components and utility props.
+          Components based on shadcn/ui. Consistent and high-quality user
+          experience.
         </p>
       </div>
 
       <div className="relative after:content-[''] md:after:absolute md:after:h-full md:after:top-0 md:after:right-0 md:after:border-r-4 md:after:border-dashed">
-        <span className="text-2xl">Pixel Aesthetic</span>
+        <span className="text-2xl">Open source</span>
         <p className="mt-2 text-foreground/50">
-          Carefully crafted to evoke retro UI vibes while staying modern and
-          usable.
+          Fully open source. Contribute, fork, and customize to your heart's
+          content.
         </p>
       </div>
       <div>
         <span className="text-2xl">Composable & Themeable</span>
         <p className="mt-2 text-foreground/50">
-          Extend it, customize it, theme it thanks to shadcn's power.
+          Extend it, customize it, theme it thanks to Tailwind's power.
         </p>
       </div>
     </section>

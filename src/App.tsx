@@ -6,6 +6,7 @@ import Layout from "./layouts/Layout";
 import "pixelact-ui/styles.css";
 import "highlight.js/styles/github-dark.css";
 import Spinner from "./components/Spinner";
+import mdxComponents from "./components/MdxComponents";
 
 const LazyHomepage = React.lazy(() => import("./pages/Homepage"));
 const LazyNotFound = React.lazy(() => import("./pages/NotFound"));
@@ -21,7 +22,7 @@ const contentRoutes = Object.entries(contentModules).map(([path, loader]) => {
     path: `/docs/${name}`,
     element: (
       <Suspense fallback={<Spinner />}>
-        <Component />
+        <Component components={mdxComponents} />
       </Suspense>
     ),
   };
