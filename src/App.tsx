@@ -16,7 +16,8 @@ const contentModules = import.meta.glob("./content/*.mdx");
 const contentRoutes = Object.entries(contentModules).map(([path, loader]) => {
   const name = path.match(/\.\/content\/(.*)\.mdx$/)?.[1];
   const Component = React.lazy(
-    loader as () => Promise<{ default: React.ComponentType }>
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    loader as () => Promise<{ default: React.ComponentType<any> }>
   );
   return {
     path: `/docs/${name}`,
