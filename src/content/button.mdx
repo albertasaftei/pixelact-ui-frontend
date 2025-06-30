@@ -1,0 +1,103 @@
+import { PixelButton } from "pixelact-ui";
+
+# PixelButton
+
+A pixel art styled button component built on top of shadcn/ui's Button component. Features retro styling with multiple variants and full support for all underlying button props.
+
+## Usage
+
+### Basic Button
+
+<CodePreview 
+  language="tsx"
+  code={`import { PixelButton } from "pixelact-ui";
+
+export function BasicButton() {
+  return (
+    <PixelButton>
+      Click Me!
+    </PixelButton>
+  );
+}`}
+>
+  <PixelButton>Click Me!</PixelButton>
+</CodePreview>
+
+### Button Variants
+
+<CodePreview 
+  language="tsx"
+  code={`import { PixelButton } from "pixelact-ui";
+
+export function ButtonVariants() {
+  return (
+    <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
+      <PixelButton variant="default">Default</PixelButton>
+      <PixelButton variant="warning">Warning</PixelButton>
+      <PixelButton variant="success">Success</PixelButton>
+      <PixelButton variant="destructive">Destructive</PixelButton>
+      <PixelButton variant="link">Link</PixelButton>
+    </div>
+  );
+}`}
+>
+  <div style={{ display: "flex", gap: "8px", flexWrap: "wrap", alignItems: "center" }}>
+    <PixelButton variant="default">Default</PixelButton>
+    <PixelButton variant="warning">Warning</PixelButton>
+    <PixelButton variant="success">Success</PixelButton>
+    <PixelButton variant="destructive">Destructive</PixelButton>
+    <PixelButton variant="link">Link</PixelButton>
+  </div>
+</CodePreview>
+
+### Button Sizes
+
+<CodePreview 
+  code={`import { PixelButton } from "pixelact-ui";
+
+export function ButtonSizes() {
+  return (
+    <div style={{ display: "flex", gap: "8px", alignItems: "center" }}>
+      <PixelButton size="sm">Small</PixelButton>
+      <PixelButton size="default">Default</PixelButton>
+      <PixelButton size="lg">Large</PixelButton>
+    </div>
+  );
+}`}
+>
+  <div style={{ display: "flex", gap: "8px", alignItems: "center" }}>
+    <PixelButton size="sm">Small</PixelButton>
+    <PixelButton size="default">Default</PixelButton>
+    <PixelButton size="lg">Large</PixelButton>
+  </div>
+</CodePreview>
+
+### Disabled Button
+
+<CodePreview 
+  code={`import { PixelButton } from "pixelact-ui";
+  export function DisabledButton() {
+    return (
+      <PixelButton disabled>
+        Disabled
+      </PixelButton>
+    );
+  }`}
+>
+  <PixelButton disabled>Disabled</PixelButton> 
+</CodePreview>
+
+### As Child (Polymorphic)
+
+```tsx
+import { PixelButton } from "pixelact-ui";
+import { Link } from "react-router-dom";
+
+export function AsChildButton() {
+  return (
+    <PixelButton asChild>
+      <Link to="/dashboard">Go to Dashboard</Link>
+    </PixelButton>
+  );
+}
+```

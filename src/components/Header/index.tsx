@@ -6,7 +6,11 @@ import { useCallback, useEffect, useState } from "react";
 import { DarkMode, Github, LightMode, Logo, Menu } from "@/assets/icons";
 import { cn } from "@/lib/utils";
 
-const navigationItems = [{ name: "Docs", path: routes.docs.installation }];
+const navigationItems = [
+  { name: "Docs", path: routes.docs.installation },
+  { name: "Components", path: routes.docs.components.button },
+  { name: "Showcase", path: "/showcase", disabled: true },
+];
 const mobileNavigationItems = [
   {
     name: "Documentation",
@@ -107,14 +111,25 @@ const Header = () => {
             </Drawer>
           ) : (
             <ul>
-              <div className="flex items-center gap-4 text-xs">
-                {navigationItems.map((item) => (
-                  <li key={item.path} className="relative">
-                    <NavLink to={item.path} className="text-background">
-                      {item.name}
-                    </NavLink>
-                  </li>
-                ))}
+              <div className="flex items-center gap-8 text-xs">
+                {navigationItems.map((item) => {
+                  return (
+                    <li key={item.path} className="relative">
+                      {item.disabled ? (
+                        <span className="text-background opacity-50 cursor-default">
+                          {item.name}
+                        </span>
+                      ) : (
+                        <NavLink
+                          to={item.path}
+                          className={cn("text-background")}
+                        >
+                          {item.name}
+                        </NavLink>
+                      )}
+                    </li>
+                  );
+                })}
               </div>
             </ul>
           )}
