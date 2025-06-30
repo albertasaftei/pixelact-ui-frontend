@@ -9,7 +9,14 @@ const navItems = {
     { name: "Fonts", path: routes.docs.fonts },
     { name: "Contributing", path: routes.docs.contributing },
   ],
-  Components: [],
+  Components: [
+    { name: "Button", path: routes.docs.components.button },
+    { name: "Dialog", path: routes.docs.components.dialog },
+    { name: "Input", path: routes.docs.components.input },
+    { name: "Lists", path: routes.docs.components.lists },
+    { name: "Label", path: routes.docs.components.label },
+    { name: "Text Area", path: routes.docs.components.textarea },
+  ],
 };
 
 export function DocsLayout() {
@@ -23,7 +30,7 @@ export function DocsLayout() {
           <nav className="flex flex-col gap-4 pixel-font">
             {Object.entries(navItems).map(([section, items]) => (
               <div key={section} className="flex flex-col gap-2">
-                <h3 className="w-fit text-lg text-foreground font-bold border-b-2">
+                <h3 className="w-fit text-lg text-foreground border-b-2">
                   {section}
                 </h3>
                 {items.map((item) => (
@@ -33,8 +40,8 @@ export function DocsLayout() {
                     onClick={() => setCurrentLink(item.path)}
                     className={
                       currentLink === item.path
-                        ? "w-fit text-link border-b-2"
-                        : "w-fit text-foreground"
+                        ? "ml-4 w-fit text-link"
+                        : "ml-4 w-fit text-foreground"
                     }
                   >
                     {item.name}

@@ -3,7 +3,7 @@ import { PixelButton, PixelInput, PixelLabel } from "pixelact-ui";
 const ComponentsShowcase = () => {
   return (
     <section className=" border-t-4 border-dashed text-foreground pixel-font p-8 md:p-12 xl:p-24">
-      <div className="text-2xl mb-8">Components showcase</div>
+      <div className="text-2xl mb-8 text-center">Components showcase</div>
       <div className="flex flex-wrap gap-12 md:gap-4">
         <div className="w-full md:w-fit flex-1 p-4  border-4 border-dashed flex flex-col gap-4">
           <h4 className="text-xl mb-4 text-center">Login</h4>
