@@ -1,9 +1,17 @@
 import { useIsMobile } from "@/hooks/use-mobile";
+import { cn } from "@/lib/utils";
 import { routes } from "@/utils";
+import { ConstructionIcon } from "lucide-react";
 import { useState } from "react";
 import { NavLink, Outlet } from "react-router-dom";
 
-const navItems = {
+const navItems: {
+  [section: string]: {
+    name: string;
+    path: string;
+    workInProgress?: boolean;
+  }[];
+} = {
   "Getting started": [
     { name: "Installation", path: routes.docs.installation },
     { name: "Fonts", path: routes.docs.fonts },
@@ -11,11 +19,19 @@ const navItems = {
   ],
   Components: [
     { name: "Button", path: routes.docs.components.button },
-    { name: "Dialog", path: routes.docs.components.dialog },
-    { name: "Input", path: routes.docs.components.input },
-    { name: "Lists", path: routes.docs.components.lists },
-    { name: "Label", path: routes.docs.components.label },
-    { name: "Text Area", path: routes.docs.components.textarea },
+    {
+      name: "Dialog",
+      path: routes.docs.components.dialog,
+      workInProgress: true,
+    },
+    { name: "Input", path: routes.docs.components.input, workInProgress: true },
+    { name: "Lists", path: routes.docs.components.lists, workInProgress: true },
+    { name: "Label", path: routes.docs.components.label, workInProgress: true },
+    {
+      name: "Text Area",
+      path: routes.docs.components.textarea,
+      workInProgress: true,
+    },
   ],
 };
 
@@ -37,14 +53,26 @@ export function DocsLayout() {
                   <NavLink
                     key={item.path}
                     to={item.path}
-                    onClick={() => setCurrentLink(item.path)}
-                    className={
+                    onClick={(e) => {
+                      if (item.workInProgress) {
+                        return e.preventDefault();
+                      }
+                      setCurrentLink(item.path);
+                    }}
+                    className={cn(
+                      "flex items-center gap-4",
+                      item.workInProgress && "cursor-default",
                       currentLink === item.path
                         ? "ml-4 w-fit text-link"
                         : "ml-4 w-fit text-foreground"
-                    }
+                    )}
                   >
-                    {item.name}
+                    <span className={cn(item.workInProgress && "opacity-50")}>
+                      {item.name}
+                    </span>
+                    {item.workInProgress && (
+                      <ConstructionIcon className="text-yellow-300" />
+                    )}
                   </NavLink>
                 ))}
               </div>
