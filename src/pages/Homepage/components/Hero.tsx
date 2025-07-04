@@ -27,7 +27,7 @@ const Hero = () => {
         Pixelact UI
       </span>
       <p className="mt-4 max-w-2xl text-foreground/50 pixel-font md:text-center">
-        A pixel-flavored component library.
+        A pixel art flavored component library.
       </p>
       <div className="mt-6 flex max-sm:flex-col gap-6">
         <PixelButton
