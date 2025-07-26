@@ -22,7 +22,7 @@ const navItems: {
     {
       name: "Dialog",
       path: routes.docs.components.dialog,
-      workInProgress: false,
+      workInProgress: true,
     },
     {
       name: "Input",
