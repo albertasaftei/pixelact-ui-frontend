@@ -22,15 +22,17 @@ const navItems: {
     {
       name: "Dialog",
       path: routes.docs.components.dialog,
-      workInProgress: true,
+      workInProgress: false,
     },
-    { name: "Input", path: routes.docs.components.input, workInProgress: true },
-    { name: "Lists", path: routes.docs.components.lists, workInProgress: true },
-    { name: "Label", path: routes.docs.components.label, workInProgress: true },
+    {
+      name: "Input",
+      path: routes.docs.components.input,
+      workInProgress: false,
+    },
     {
       name: "Text Area",
       path: routes.docs.components.textarea,
-      workInProgress: true,
+      workInProgress: false,
     },
   ],
 };

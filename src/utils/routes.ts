@@ -7,12 +7,11 @@ interface Routes {
     components: {
       button: string;
       textarea: string;
-      lists: string;
       input: string;
-      label: string;
       dialog: string;
     };
   };
+  showcase: string;
   notFound: string;
 }
 const routes: Routes = {
@@ -23,13 +22,12 @@ const routes: Routes = {
     contributing: "/docs/contributing",
     components: {
       button: "/docs/button",
-      textarea: "/docs/textarea",
-      lists: "/docs/lists",
+      textarea: "/docs/text-area",
       input: "/docs/input",
-      label: "/docs/label",
       dialog: "/docs/dialog",
     }
   },
+  showcase: "/showcase",
   notFound: "*",
 };
 

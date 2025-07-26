@@ -1,0 +1,114 @@
+import { PixelInput, PixelLabel } from "pixelact-ui";
+import "pixelact-ui/styles.css";
+
+# PixelInput
+
+A pixel art styled input component with retro styling and full support for all HTML input attributes. Features pixel font styling and custom visual design.
+
+## Usage
+
+### Basic Input
+
+<CodePreview 
+  language="tsx"
+  code={`import { PixelInput } from "pixelact-ui";
+
+export function BasicInput() {
+  return (
+    <PixelInput 
+      placeholder="Enter your text..."
+      type="text"
+    />
+  );
+}`}
+>
+  <PixelInput placeholder="Enter your text..."  />
+</CodePreview>
+
+### Different Input Types
+
+<CodePreview 
+  language="tsx"
+  code={`import { PixelInput } from "pixelact-ui";
+
+export function InputTypes() {
+  return (
+    <div>
+      <PixelInput type="text" placeholder="Text input" />
+      <PixelInput type="password" placeholder="Password input" />
+    </div>
+  );
+}`}
+>
+  <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+    <PixelInput type="text" placeholder="Text input" />
+    <PixelInput type="password" placeholder="Password input" />
+  </div>
+</CodePreview>
+
+### With Label
+<CodePreview 
+  language="tsx"
+  code={`import { PixelInput, PixelLabel } from "pixelact-ui";
+
+export function FormInput() {
+  return (
+    <div>
+      <PixelLabel htmlFor="username">Username</PixelLabel>
+      <PixelInput 
+        id="username"
+        type="text"
+        placeholder="Enter your username"
+        required
+      />
+      <PixelLabel htmlFor="email">Email</PixelLabel>
+      <PixelInput 
+        id="email"
+        type="email"
+        placeholder="Enter your email"
+        required
+      />
+    </div>
+  );
+}`}
+>
+  <div className="flex flex-col gap-2">
+    <div>
+    <PixelLabel htmlFor="username">Username</PixelLabel>
+    <PixelInput 
+      id="username"
+      type="text"
+      placeholder="Enter your username"
+      required
+    />
+    </div>
+    <div>
+    <PixelLabel htmlFor="email">Email</PixelLabel>
+    <PixelInput 
+      id="email"
+      type="email"
+      placeholder="Enter your email"
+      required
+    />
+    </div>
+  </div>
+</CodePreview>
+
+### Disabled Input
+
+<CodePreview 
+  language="tsx"
+  code={`import { PixelInput } from "pixelact-ui";
+
+export function DisabledInput() {
+  return (
+    <PixelInput 
+      disabled
+      placeholder="Disabled input"
+    />
+  );
+}`}
+>
+  <PixelInput disabled  placeholder="Disabled input" />
+</CodePreview>
+

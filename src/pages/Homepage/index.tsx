@@ -2,7 +2,7 @@ import ComponentsShowcase from "./components/ComponentsShowcase";
 import Features from "./components/Features";
 import Hero from "./components/Hero";
 
-const Homepage = () => {
+const Homepage: React.FC = () => {
   return (
     <div className="flex flex-col bg-background text-foreground">
       <Hero />

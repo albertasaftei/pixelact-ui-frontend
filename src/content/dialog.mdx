@@ -1,0 +1,68 @@
+import { PixelDialog, PixelButton } from "pixelact-ui";
+import React from "react";
+
+# PixelDialog
+
+A pixel art styled dialog component built on top of shadcn/ui's Dialog component. Features retro styling with customizable content and full support for all underlying Dialog and DialogContent props.
+
+## Usage
+
+### Basic Dialog
+
+<CodePreview 
+  language="tsx"
+  code={`import { PixelDialog } from "pixelact-ui";
+
+export function BasicDialog() {
+  return (
+    <PixelDialog trigger={<button>Open Dialog</button>}>
+      <h2>Welcome!</h2>
+      <p>This is a pixel art styled dialog.</p>
+    </PixelDialog>
+  );
+}`}
+>
+  <PixelDialog trigger={<PixelButton className="w-fit">Open Dialog</PixelButton>}>
+    <h2>Welcome!</h2>
+    <p>This is a pixel art styled dialog.</p>
+  </PixelDialog>
+</CodePreview>
+
+### Manual Control (Without Trigger)
+<CodePreview
+  language="tsx"
+  code={`import { useState } from "react";
+import { PixelDialog } from "pixelact-ui";
+
+export function ManualDialog() {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <>
+      <button onClick={() => setOpen(true)}>Open Dialog</button>
+      <PixelDialog 
+        open={open}
+        onOpenChange={setOpen}
+      >
+        <h2>Manual Dialog</h2>
+        <p>This dialog is opened manually without using the trigger prop.</p>
+      </PixelDialog>
+    </>
+  );
+}`}
+>
+  {(() => {
+    const [open, setOpen] = React.useState(false);
+    return (
+      <>
+        <PixelButton className="w-fit" onClick={() => setOpen(true)}>
+          Open Dialog
+        </PixelButton>
+        <PixelDialog open={open} onOpenChange={setOpen}>
+          <h1 className="pixel-font">Manual Dialog</h1>
+          <p className="pixel-font text-sm">This dialog is opened manually without using the trigger prop.</p>
+        </PixelDialog>
+      </>
+    );
+  })()}
+</CodePreview>

@@ -31,7 +31,7 @@ export function BasicButton() {
 
 export function ButtonVariants() {
   return (
-    <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
+    <div>
       <PixelButton variant="default">Default</PixelButton>
       <PixelButton variant="warning">Warning</PixelButton>
       <PixelButton variant="success">Success</PixelButton>
@@ -86,18 +86,3 @@ export function ButtonSizes() {
 >
   <PixelButton disabled>Disabled</PixelButton> 
 </CodePreview>
-
-### As Child (Polymorphic)
-
-```tsx
-import { PixelButton } from "pixelact-ui";
-import { Link } from "react-router-dom";
-
-export function AsChildButton() {
-  return (
-    <PixelButton asChild>
-      <Link to="/dashboard">Go to Dashboard</Link>
-    </PixelButton>
-  );
-}
-```

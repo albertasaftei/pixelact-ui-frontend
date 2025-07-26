@@ -16,7 +16,7 @@ const ComponentsShowcase = () => {
             </PixelLabel>
             <PixelInput
               id="username"
-              className="w-full p-2 bg-background text-foreground dark:bg-foreground dark:text-background"
+              className="w-full"
               placeholder="Enter your username"
             />
           </div>
@@ -30,7 +30,7 @@ const ComponentsShowcase = () => {
             <PixelInput
               id="password"
               type="password"
-              className="w-full p-2 bg-background text-foreground dark:bg-foreground dark:text-background"
+              className="w-full"
               placeholder="••••••••••"
             />
           </div>
@@ -48,7 +48,7 @@ const ComponentsShowcase = () => {
             <PixelInput
               id="email"
               type="email"
-              className="w-full p-2 bg-background text-foreground dark:bg-foreground dark:text-background"
+              className="w-full"
               placeholder="Enter your email"
             />
           </div>
@@ -62,7 +62,7 @@ const ComponentsShowcase = () => {
             <PixelInput
               id="password"
               type="password"
-              className="w-full p-2 bg-background text-foreground dark:bg-foreground dark:text-background"
+              className="w-full"
               placeholder="••••••••••"
             />
           </div>
@@ -76,7 +76,7 @@ const ComponentsShowcase = () => {
             <PixelInput
               id="confirmPassword"
               type="password"
-              className="w-full p-2 bg-background text-foreground dark:bg-foreground dark:text-background"
+              className="w-full"
               placeholder="••••••••••"
             />
           </div>
@@ -87,11 +87,7 @@ const ComponentsShowcase = () => {
             >
               Date of birth
             </PixelLabel>
-            <PixelInput
-              type="date"
-              className="w-full p-2 bg-background text-foreground dark:bg-foreground dark:text-background"
-              id="dateOfBirth"
-            />
+            <PixelInput type="date" className="w-full" id="dateOfBirth" />
           </div>
           <div className="flex items-center gap-4">
             <PixelInput

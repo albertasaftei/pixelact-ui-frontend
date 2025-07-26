@@ -1,0 +1,44 @@
+import { PixelTextArea } from "pixelact-ui";
+
+# PixelTextArea
+
+A pixel art styled textarea component built on top of shadcn/ui's Textarea component. Features retro styling with pixel font and full support for all HTML textarea attributes.
+
+## Usage
+
+### Basic TextArea
+
+<CodePreview 
+  language="tsx"
+  code={`import { PixelTextArea } from "pixelact-ui";
+
+export function BasicTextArea() {
+  return (
+    <PixelTextArea 
+      placeholder="Enter your message..."
+      rows={4}
+    />
+  );
+}`}
+>
+  <PixelTextArea placeholder="Enter your message..." rows={4} />
+</CodePreview>
+
+### Disabled TextArea
+
+<CodePreview 
+  language="tsx"
+  code={`import { PixelTextArea } from "pixelact-ui";
+
+export function DisabledTextArea() {
+  return (
+    <PixelTextArea 
+      disabled
+      placeholder="This textarea is disabled"
+      rows={3}
+    />
+  );
+}`}
+>
+  <PixelTextArea disabled placeholder="This textarea is disabled" rows={3} />
+</CodePreview>

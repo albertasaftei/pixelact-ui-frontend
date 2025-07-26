@@ -6,12 +6,18 @@ import { useCallback, useEffect, useState } from "react";
 import { DarkMode, Github, LightMode, Logo, Menu } from "@/assets/icons";
 import { cn } from "@/lib/utils";
 
-const navigationItems = [
+interface NavigationItem {
+  name: string;
+  path: string;
+  disabled?: boolean;
+}
+
+const navigationItems: NavigationItem[] = [
   { name: "Docs", path: routes.docs.installation },
   { name: "Components", path: routes.docs.components.button },
-  { name: "Showcase", path: "/showcase", disabled: true },
+  { name: "Showcase", path: routes.showcase },
 ];
-const mobileNavigationItems = [
+const mobileNavigationItems: { name: string; items: NavigationItem[] }[] = [
   {
     name: "Documentation",
     items: [
@@ -22,11 +28,10 @@ const mobileNavigationItems = [
   {
     name: "Components",
     items: [
-      { name: "Button", path: "/docs/button" },
-      { name: "Input", path: "/docs/input" },
-      { name: "Select", path: "/docs/select" },
-      { name: "Checkbox", path: "/docs/checkbox" },
-      { name: "Radio", path: "/docs/radio" },
+      { name: "Button", path: routes.docs.components.button },
+      { name: "Dialog", path: routes.docs.components.dialog },
+      { name: "Input", path: routes.docs.components.input },
+      { name: "Text Area", path: routes.docs.components.textarea },
     ],
   },
 ];

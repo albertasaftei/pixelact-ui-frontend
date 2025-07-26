@@ -1,15 +1,16 @@
 import React, { Suspense } from "react";
+import "pixelact-ui/styles.css";
+import "highlight.js/styles/github-dark.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { routes } from "@/utils";
 import { DocsLayout } from "./layouts/DocsLayout";
 import Layout from "./layouts/Layout";
-import "pixelact-ui/styles.css";
-import "highlight.js/styles/github-dark.css";
 import Spinner from "./components/Spinner";
 import mdxComponents from "./components/MdxComponents";
 
 const LazyHomepage = React.lazy(() => import("./pages/Homepage"));
 const LazyNotFound = React.lazy(() => import("./pages/NotFound"));
+const LazyShowcase = React.lazy(() => import("./pages/Showcase"));
 
 const contentModules = import.meta.glob("./content/*.mdx");
 
@@ -64,6 +65,14 @@ function App() {
               />
             ))}
           </Route>
+          <Route
+            path={routes.showcase}
+            element={
+              <Suspense fallback={<SuspenseLoader />}>
+                <LazyShowcase />
+              </Suspense>
+            }
+          />
         </Route>
         <Route
           path={routes.notFound}
