@@ -6,13 +6,13 @@ const mdxComponents = {
   h1: (props: ComponentProps<"h1">) => (
     <h1
       {...props}
-      className="text-2xl md:text-3xl text-foreground mb-4 pixel-font"
+      className="text-2xl md:text-3xl text-foreground mb-4 mt-4 pixel-font"
     />
   ),
   h2: (props: ComponentProps<"h2">) => (
     <h2
       {...props}
-      className="text-xl md:text-2xl text-foreground mb-3 pixel-font"
+      className="text-xl md:text-2xl text-foreground mb-3 mt-3 pixel-font"
     />
   ),
   h3: (props: ComponentProps<"h3">) => (
