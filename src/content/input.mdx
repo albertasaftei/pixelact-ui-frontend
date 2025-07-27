@@ -20,7 +20,7 @@ export function BasicInput() {
   );
 }`}
 >
-  <PixelInput placeholder="Enter your text..."  />
+  <PixelInput className="w-full" placeholder="Enter your text..."  />
 </CodePreview>
 
 ### Different Input Types
@@ -39,8 +39,8 @@ export function InputTypes() {
 }`}
 >
   <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-    <PixelInput type="text" placeholder="Text input" />
-    <PixelInput type="password" placeholder="Password input" />
+    <PixelInput className="w-full" type="text" placeholder="Text input" />
+    <PixelInput className="w-full" type="password" placeholder="Password input" />
   </div>
 </CodePreview>
 
@@ -74,6 +74,7 @@ export function FormInput() {
     <div>
     <PixelLabel htmlFor="username">Username</PixelLabel>
     <PixelInput 
+      className="w-full"
       id="username"
       type="text"
       placeholder="Enter your username"
@@ -83,6 +84,7 @@ export function FormInput() {
     <div>
     <PixelLabel htmlFor="email">Email</PixelLabel>
     <PixelInput 
+      className="w-full"
       id="email"
       type="email"
       placeholder="Enter your email"
@@ -107,6 +109,6 @@ export function DisabledInput() {
   );
 }`}
 >
-  <PixelInput disabled  placeholder="Disabled input" />
+  <PixelInput className="w-full" disabled  placeholder="Disabled input" />
 </CodePreview>
 
