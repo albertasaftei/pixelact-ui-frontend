@@ -23,6 +23,7 @@ const mobileNavigationItems: { name: string; items: NavigationItem[] }[] = [
     items: [
       { name: "Installation", path: routes.docs.installation },
       { name: "Fonts", path: routes.docs.fonts },
+      { name: "Contributing", path: routes.docs.contributing },
     ],
   },
   {
@@ -88,32 +89,50 @@ const Header = () => {
           </NavLink>
 
           {isMobile ? (
-            <Drawer open={isOpen} onOpenChange={setIsOpen}>
-              <DrawerTrigger>
-                <Menu
-                  className={cn(iconsClassName)}
-                  style={{ color: "var(--background)" }}
-                />
-              </DrawerTrigger>
-              <DrawerContent className="p-4 gap-6 overflow-auto">
-                {mobileNavigationItems.map((section) => (
-                  <div key={section.name}>
-                    <div className="mb-2 text-lg text-foreground">
-                      {section.name}
+            <div className="flex gap-4">
+              <LightDarkModeIcon />
+              <Github
+                className={cn(iconsClassName, "fill-background")}
+                onClick={() =>
+                  window.open(
+                    "https://github.com/pixelact-ui/pixelact-ui",
+                    "__blank"
+                  )
+                }
+              />
+              <Drawer open={isOpen} onOpenChange={setIsOpen}>
+                <DrawerTrigger>
+                  <Menu
+                    className={cn(iconsClassName)}
+                    style={{ color: "var(--background)" }}
+                  />
+                </DrawerTrigger>
+                <DrawerContent className="p-4 gap-6 overflow-auto">
+                  {mobileNavigationItems.map((section) => (
+                    <div key={section.name}>
+                      <div className="mb-2 text-lg text-foreground">
+                        {section.name}
+                      </div>
+                      <ul className="flex flex-col space-y-3 ">
+                        {section.items.map((subItem) => (
+                          <li
+                            key={subItem.path}
+                            onClick={() => setIsOpen(false)}
+                          >
+                            <a
+                              href={subItem.path}
+                              className="text-foreground/40"
+                            >
+                              {subItem.name}
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
-                    <ul className="flex flex-col space-y-3 ">
-                      {section.items.map((subItem) => (
-                        <li key={subItem.path} onClick={() => setIsOpen(false)}>
-                          <a href={subItem.path} className="text-foreground/40">
-                            {subItem.name}
-                          </a>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                ))}
-              </DrawerContent>
-            </Drawer>
+                  ))}
+                </DrawerContent>
+              </Drawer>
+            </div>
           ) : (
             <ul>
               <div className="flex items-center gap-8 text-xs">
