@@ -58,7 +58,6 @@
       (function () {
         try {
           const selectedTheme = localStorage.getItem("theme");
-          console.log({ selectedTheme });
           if (selectedTheme) {
             document.documentElement.classList.add(selectedTheme);
           } else if (
