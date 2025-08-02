@@ -108,7 +108,9 @@ function App() {
       ) : (
         <RoutesComponent />
       )}
-      <CookiesBanner onAccept={() => initPostHog()} onDecline={() => {}} />
+      {!posthog.__loaded && (
+        <CookiesBanner onAccept={() => initPostHog()} onDecline={() => {}} />
+      )}
     </>
   );
 }
